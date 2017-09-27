@@ -9,7 +9,7 @@ export interface IAppHomeProps {
   onDecrement?: () => void;
 }
 
-function AppHome({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IAppHomeProps) {
+function AppContext({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IAppHomeProps) {
   if (enthusiasmLevel <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }
@@ -31,7 +31,7 @@ function AppHome({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IAppHo
   );
 }
 
-export default AppHome;
+export default AppContext;
 
 // styles
 

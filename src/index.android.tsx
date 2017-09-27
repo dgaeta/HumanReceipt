@@ -11,8 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
-
-import AppHome from './components/AppHome';
+import AppContext from './components/AppContext';
 
 export default class HumanReceipt extends React.Component {
   render() {
@@ -29,7 +28,7 @@ export default class HumanReceipt extends React.Component {
           Shake or press menu button for dev menu
         </Text> */}
 
-        <AppHome name="Daniel"/>
+        <AppContext name="Daniel"/>
       </View>
     );
   }

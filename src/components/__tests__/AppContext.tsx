@@ -5,10 +5,10 @@ import { Text } from 'react-native';
 import { configure, shallow } from 'enzyme';
 import * as Adapter from 'enzyme-adapter-react-16';
 
-import AppHome from '../AppHome';
+import AppContext from '../AppContext';
 
 it('renders correctly with defaults', () => {
     configure({ adapter: new Adapter() });
-    const hello = shallow(<AppHome name="World" />);
+    const hello = shallow(<AppContext name="World" />);
     expect(hello.find(Text).render().text()).toEqual("Hello World!");
 })
