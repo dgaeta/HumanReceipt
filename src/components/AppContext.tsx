@@ -1,6 +1,7 @@
 // src/components/Hello.tsx
 import * as React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
+import App from './App';
 
 export interface IAppHomeProps {
   name: string;
@@ -16,17 +17,7 @@ function AppContext({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: IAp
 
   return (
     <View style={styles.root}>
-        <Text style={styles.greeting}>
-        Hello {name + getExclamationMarks(enthusiasmLevel)}
-        </Text>
-        <View style={styles.buttons}>
-            <View style={styles.button}>
-            <Button title="-" onPress={onDecrement || (() => {})} accessibilityLabel="decrement" color='red' />
-            </View>
-            <View style={styles.button}>
-                <Button title="+" onPress={onIncrement || (() => {})}  accessibilityLabel="increment" color='blue' />
-            </View>
-        </View>
+        <App/>
     </View>
   );
 }
