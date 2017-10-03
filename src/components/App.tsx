@@ -4,11 +4,11 @@ import {
   AppRegistry,
   Dimensions,
   StyleSheet,
-  Text,
   TouchableHighlight,
   View
 } from 'react-native';
 import Camera from 'react-native-camera';
+import { Container, Header, Content, Button, Text } from 'native-base';
 
 interface Camera {
   capture: any;
@@ -32,7 +32,29 @@ export default class App extends React.Component {
           }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}>
-          <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+
+            <View
+              style={styles.overlayContainer}
+            >
+              <Button
+                style={styles.item}
+              >
+                <Text>History</Text>
+              </Button>
+
+              <Button
+                style={styles.item}
+                onPress={this.takePicture.bind(this)}
+              >
+                <Text>Scan</Text>
+              </Button>
+
+              <Button
+                style={styles.item}
+              >
+                <Text>Bank</Text>
+              </Button>
+            </View>
         </Camera>
       </View>
     );
@@ -53,18 +75,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'row',
+    paddingBottom: 50
+  },
+  overlayContainer: {
+    flex: 1,
+    flexDirection: 'row'
   },
   preview: {
     flex: 1,
-    justifyContent: 'flex-end',
-    alignItems: 'center'
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'flex-end',
   },
-  capture: {
-    flex: 0,
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    color: '#000',
-    padding: 10,
-    margin: 40
+  item: {
+    flex: 1
   }
 });
